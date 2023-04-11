@@ -1,3 +1,4 @@
+from pyrogram import enums
 from pyrogram import filters as Filters
 from pyrogram.types import (
     InlineKeyboardMarkup,
@@ -38,7 +39,7 @@ def map_btns(pos):
     & Filters.command("help")
 )
 async def _help(c: UtubeBot, m: Message):
-    await m.reply_chat_action("typing")
+    await m.reply_chat_action(enums.ChatAction.TYPING)
     await m.reply_text(
         text=tr.HELP_MSG[1],
         reply_markup=InlineKeyboardMarkup(map_btns(1)),
