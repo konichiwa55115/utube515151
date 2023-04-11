@@ -1,6 +1,7 @@
 import os
 import time
 import string
+from pyrogram import enums
 import random
 import logging
 import asyncio
@@ -61,7 +62,7 @@ async def _upload(c: UtubeBot, m: Message):
     if not status:
         c.counter -= 1
         c.counter = max(0, c.counter)
-        await snt.edit_text(text=file, parse_mode="markdown")
+        await snt.edit_text(text=file, parse_mode=enums.ParseMode.MARKDOWN)
         return
 
     try:
@@ -77,7 +78,7 @@ async def _upload(c: UtubeBot, m: Message):
     if not status:
         c.counter -= 1
         c.counter = max(0, c.counter)
-    await snt.edit_text(text=link, parse_mode="markdown")
+    await snt.edit_text(text=link, parse_mode=enums.ParseMode.MARKDOWN)
 
 
 def get_download_id(storage: dict) -> str:
